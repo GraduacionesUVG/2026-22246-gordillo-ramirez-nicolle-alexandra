@@ -22,8 +22,8 @@ Versiones jugables en línea:
 
 1. Clonar el repositorio:
    ```bash
-   git clone https://github.com/[tu-usuario]/2026-22246-nicolle-alexandra-gordillo-ramirez.git
-   cd 2026-22246-nicolle-alexandra-gordillo-ramirez
+   git clone https://github.com/nicollegordillo/2026-22246-gordillo-ramirez-nicolle-alexandra.git
+   cd 2026-22246-gordillo-ramirez-nicolle-alexandra
    ```
 2. Instalar dependencias: el videojuego no requiere instalar paquetes (no usa Node.js). Solo para las métricas:
    ```bash
@@ -43,7 +43,7 @@ Versiones jugables en línea:
 Repositorio de desarrollo del videojuego (ramas `main` e `IAG`): https://github.com/Jose-Prince/UVG-Tesis-Game
 
 ## Capturas
-Las capturas de pantalla del sistema se encuentran en [`/capturas`](capturas) (10 capturas).
+Las capturas de pantalla del sistema se encuentran en [`/capturas`](capturas) (16 capturas).
 
 ## Demo
 El video demostrativo se encuentra en [`/demo/demo.mp4`](demo/demo.mp4).
