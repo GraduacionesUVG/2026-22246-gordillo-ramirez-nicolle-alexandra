@@ -1,0 +1,196 @@
+[gd_scene format=3 uid="uid://cpoodtd07o4h"]
+
+[ext_resource type="Theme" uid="uid://da0xyab7qjklt" path="res://Resources/Themes/panel_theme.tres" id="1_3s2e7"]
+[ext_resource type="Script" uid="uid://coad84dfrng1d" path="res://Scripts/TimeSystem/calendar_panel.gd" id="2_j5sfs"]
+[ext_resource type="Texture2D" uid="uid://dxlms6gk7ck5e" path="res://Assets/Sprites/clock_32x32.png" id="2_s1xu4"]
+[ext_resource type="Script" uid="uid://cyljaxxopiqmf" path="res://Scripts/TimeSystem/clock_time.gd" id="2_tew1x"]
+[ext_resource type="Theme" uid="uid://dqol0gr6yfoko" path="res://Resources/Themes/panel_container_theme.tres" id="3_3s2e7"]
+[ext_resource type="FontFile" uid="uid://d207htfjfwxpo" path="res://Assets/Fonts/Silkscreen-Regular.ttf" id="4_ibm6u"]
+[ext_resource type="PackedScene" uid="uid://ikspqcx1svwj" path="res://Prefabs/Shop/money_panel.tscn" id="7_j5sfs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_epp2k"]
+bg_color = Color(0.81960785, 0.7372549, 0.627451, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(0.34509805, 0.22352941, 0.13333334, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vbraj"]
+bg_color = Color(0.81960785, 0.7372549, 0.627451, 1)
+border_width_left = 2
+border_width_right = 2
+border_color = Color(0.34509805, 0.22352941, 0.13333334, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46yia"]
+bg_color = Color(0.81960785, 0.7372549, 0.627451, 1)
+border_width_left = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.34509805, 0.22352941, 0.13333334, 1)
+
+[node name="TimeUI" type="Control" unique_id=2113710388]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1392488053]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=744621426]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="CalendarPanel" type="Panel" parent="MarginContainer/VBoxContainer" unique_id=849064592]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+theme = ExtResource("1_3s2e7")
+theme_override_styles/panel = SubResource("StyleBoxFlat_epp2k")
+script = ExtResource("2_j5sfs")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/CalendarPanel" unique_id=147450495]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/CalendarPanel/MarginContainer" unique_id=1310982070]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="MonthLabel" type="Label" parent="MarginContainer/VBoxContainer/CalendarPanel/MarginContainer/HBoxContainer" unique_id=135670380]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ibm6u")
+theme_override_font_sizes/font_size = 20
+text = "Jan"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/CalendarPanel/MarginContainer/HBoxContainer" unique_id=833132515]
+layout_mode = 2
+alignment = 1
+
+[node name="DisplayPanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/CalendarPanel/MarginContainer/HBoxContainer/HBoxContainer" unique_id=82101003]
+layout_mode = 2
+theme = ExtResource("3_3s2e7")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/CalendarPanel/MarginContainer/HBoxContainer/HBoxContainer/DisplayPanelContainer" unique_id=1171024092]
+layout_mode = 2
+
+[node name="DayName" type="Label" parent="MarginContainer/VBoxContainer/CalendarPanel/MarginContainer/HBoxContainer/HBoxContainer/DisplayPanelContainer/HBoxContainer" unique_id=1190418154]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ibm6u")
+theme_override_font_sizes/font_size = 20
+text = "Mon"
+
+[node name="Hyphen" type="Label" parent="MarginContainer/VBoxContainer/CalendarPanel/MarginContainer/HBoxContainer/HBoxContainer/DisplayPanelContainer/HBoxContainer" unique_id=256813375]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ibm6u")
+theme_override_font_sizes/font_size = 20
+text = "-"
+
+[node name="Day" type="Label" parent="MarginContainer/VBoxContainer/CalendarPanel/MarginContainer/HBoxContainer/HBoxContainer/DisplayPanelContainer/HBoxContainer" unique_id=1032522236]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ibm6u")
+theme_override_font_sizes/font_size = 20
+text = "28"
+
+[node name="TimePanel" type="Panel" parent="MarginContainer/VBoxContainer" unique_id=1762196066]
+custom_minimum_size = Vector2(159, 38)
+custom_maximum_size = Vector2(-1, 38)
+layout_mode = 2
+theme = ExtResource("1_3s2e7")
+theme_override_styles/panel = SubResource("StyleBoxFlat_vbraj")
+script = ExtResource("2_tew1x")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/TimePanel" unique_id=1799590049]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 7
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TimePanel/MarginContainer" unique_id=785873077]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TimePanel/MarginContainer/HBoxContainer" unique_id=1143538820]
+layout_mode = 2
+alignment = 1
+
+[node name="ClockClipping" type="Control" parent="MarginContainer/VBoxContainer/TimePanel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=922953028]
+custom_minimum_size = Vector2(42, 0)
+custom_maximum_size = Vector2(-1, 20)
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+offset_transform_enabled = true
+
+[node name="ClockTextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/TimePanel/MarginContainer/HBoxContainer/VBoxContainer/ClockClipping" unique_id=1936064704]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset = Vector2(20, 20)
+texture = ExtResource("2_s1xu4")
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/TimePanel/MarginContainer/HBoxContainer" unique_id=308886992]
+custom_maximum_size = Vector2(-1, 30)
+layout_mode = 2
+theme = ExtResource("3_3s2e7")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TimePanel/MarginContainer/HBoxContainer/PanelContainer" unique_id=1776052981]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="hours" type="Label" parent="MarginContainer/VBoxContainer/TimePanel/MarginContainer/HBoxContainer/PanelContainer/HBoxContainer" unique_id=1662210284]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ibm6u")
+theme_override_font_sizes/font_size = 20
+text = "12"
+
+[node name="space" type="Label" parent="MarginContainer/VBoxContainer/TimePanel/MarginContainer/HBoxContainer/PanelContainer/HBoxContainer" unique_id=100758000]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ibm6u")
+theme_override_font_sizes/font_size = 20
+text = ":"
+
+[node name="minutes" type="Label" parent="MarginContainer/VBoxContainer/TimePanel/MarginContainer/HBoxContainer/PanelContainer/HBoxContainer" unique_id=234230484]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ibm6u")
+theme_override_font_sizes/font_size = 20
+text = "59"
+
+[node name="period" type="Label" parent="MarginContainer/VBoxContainer/TimePanel/MarginContainer/HBoxContainer/PanelContainer/HBoxContainer" unique_id=1652459576]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ibm6u")
+theme_override_font_sizes/font_size = 20
+text = "PM"
+
+[node name="MoneyPanel" parent="MarginContainer/VBoxContainer" unique_id=1950492750 instance=ExtResource("7_j5sfs")]
+custom_minimum_size = Vector2(178, 38)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_46yia")

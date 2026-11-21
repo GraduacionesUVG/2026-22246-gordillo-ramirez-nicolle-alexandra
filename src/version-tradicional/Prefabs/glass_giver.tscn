@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dy7unp36ghucf"]
+
+[ext_resource type="Script" uid="uid://5qbl1i2iod2k" path="res://Scripts/clickable_object.gd" id="1_ko86c"]
+[ext_resource type="PackedScene" uid="uid://bgduyi5wcuj0c" path="res://Prefabs/glass.tscn" id="2_0vp62"]
+[ext_resource type="Texture2D" uid="uid://c8g03kcif0l4f" path="res://Assets/Sprites/watter-sprite_8x8.png" id="3_ko86c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k554i"]
+atlas = ExtResource("3_ko86c")
+region = Rect2(40, 0, 8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ko86c"]
+size = Vector2(6, 10)
+
+[node name="GlassGiver" type="StaticBody2D" unique_id=1691044326]
+input_pickable = true
+script = ExtResource("1_ko86c")
+new_object = ExtResource("2_0vp62")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=177862425]
+texture = SubResource("AtlasTexture_k554i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1829573626 groups=["clickable"]]
+shape = SubResource("RectangleShape2D_ko86c")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
