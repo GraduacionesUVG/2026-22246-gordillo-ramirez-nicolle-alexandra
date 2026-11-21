@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bxg7qvuqyrrvx"]
+
+[ext_resource type="Script" uid="uid://cckn561ltbikt" path="res://Scripts/Café/kitchen_counter.gd" id="1_5tryt"]
+[ext_resource type="PackedScene" uid="uid://csfk5kyjv7eej" path="res://Scenes/Objects/FoodVisual.tscn" id="2_yqchg"]
+[ext_resource type="Texture2D" uid="uid://b4if0m8an8tty" path="res://Assets/PixelLab_IA_assets/Cute_cozy_pixel_art_coffee_sho.png" id="3_jkdop"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxrvd"]
+atlas = ExtResource("3_jkdop")
+region = Rect2(33.60002, 103.2, 188.79999, 52.799988)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cc37w"]
+size = Vector2(182, 48)
+
+[node name="Counter" type="StaticBody2D" unique_id=268846846]
+script = ExtResource("1_5tryt")
+food_visual_scene = ExtResource("2_yqchg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=885409150]
+texture = SubResource("AtlasTexture_sxrvd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1626437641]
+shape = SubResource("RectangleShape2D_cc37w")
+
+[node name="FoodPosition" type="Marker2D" parent="." unique_id=1403783864]
+position = Vector2(0, -18)
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="." unique_id=520125442]
+radius = 54.02

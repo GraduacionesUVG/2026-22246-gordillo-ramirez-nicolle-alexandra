@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://cl58e8mye0sx"]
+
+[ext_resource type="Script" uid="uid://bj8hyqvckcxde" path="res://Scripts/Customers/customer.gd" id="1_nk1oc"]
+[ext_resource type="SpriteFrames" uid="uid://dju2w2sxoywof" path="res://Assets/PixelLab_IA_assets/customers/customer_01.tres" id="2_1g8wt"]
+[ext_resource type="SpriteFrames" uid="uid://eeqkqdgdb8vc" path="res://Assets/PixelLab_IA_assets/customers/customer_02.tres" id="3_543t4"]
+[ext_resource type="SpriteFrames" uid="uid://ro6d5riu2fxv" path="res://Assets/PixelLab_IA_assets/customers/customer_03.tres" id="4_24lyk"]
+[ext_resource type="SpriteFrames" uid="uid://bn327i53u3q35" path="res://Assets/PixelLab_IA_assets/customers/customer_04.tres" id="5_fhf36"]
+[ext_resource type="SpriteFrames" uid="uid://bvxbrjcnw3v5a" path="res://Assets/PixelLab_IA_assets/customers/customer_05.tres" id="6_qdme1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pxcvc"]
+size = Vector2(14, 5)
+
+[node name="Customer" type="CharacterBody2D" unique_id=980918883]
+collision_layer = 2
+script = ExtResource("1_nk1oc")
+customer_variants = Array[SpriteFrames]([ExtResource("2_1g8wt"), ExtResource("3_543t4"), ExtResource("4_24lyk"), ExtResource("5_fhf36"), ExtResource("6_qdme1")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1967612941]
+position = Vector2(0, 14.5)
+shape = SubResource("RectangleShape2D_pxcvc")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=2124059339]
+path_desired_distance = 4.0
+target_desired_distance = 8.0
+avoidance_enabled = true
+neighbor_distance = 64.0
+max_neighbors = 1
+time_horizon_obstacles = 1.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2020132279]
+sprite_frames = ExtResource("2_1g8wt")
+animation = &"walk_up"
+
+[node name="PatienceTimer" type="Timer" parent="." unique_id=511287207]
+wait_time = 20.0
+one_shot = true
+
+[node name="PatienceBar" type="ProgressBar" parent="." unique_id=695147983]
+offset_left = -24.0
+offset_top = -20.0
+offset_right = 24.0
+offset_bottom = -14.0
+value = 100.0
+show_percentage = false
+
+[node name="EatingTimer" type="Timer" parent="." unique_id=2003975126]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="PatienceTimer" to="." method="_on_patience_timer_timeout"]
+[connection signal="timeout" from="EatingTimer" to="." method="_on_eating_timer_timeout"]
